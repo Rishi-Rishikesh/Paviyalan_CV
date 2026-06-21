@@ -6,7 +6,7 @@ const cases = [
   {
     gradient: 'from-[#2563EB] to-[#0EA5E9]',
     lightGradient: 'from-blue-100 to-cyan-100',
-    iconBg: 'bg-white/20',
+    iconBg: 'bg-white/10',
     icon: <FaBullhorn className="text-white" size={22} />,
     year: '2025',
     role: 'Digital Marketing & Content Production',
@@ -24,7 +24,7 @@ const cases = [
   {
     gradient: 'from-purple-600 to-purple-400',
     lightGradient: 'from-purple-100 to-pink-100',
-    iconBg: 'bg-white/20',
+    iconBg: 'bg-white/10',
     icon: <FaPlay className="text-white" size={20} />,
     year: '2023–Present',
     role: 'Creative Director / Co-Director',
@@ -43,7 +43,7 @@ const cases = [
   {
     gradient: 'from-cyan-600 to-blue-400',
     lightGradient: 'from-cyan-100 to-blue-100',
-    iconBg: 'bg-white/20',
+    iconBg: 'bg-white/10',
     icon: <FaHashtag className="text-white" size={20} />,
     year: '2023–Present',
     role: 'Content Creator & Social Media Manager',
@@ -70,15 +70,15 @@ export default function MarketingWork() {
         subtitle="Real-world digital marketing and content creation case studies"
       />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
-        {cases.map(({ gradient, lightGradient, iconBg, icon, year, role, title, desc, highlights, tags, badge }, i) => (
+        {cases.map(({ gradient, iconBg, icon, year, role, title, desc, highlights, tags, badge }, i) => (
           <motion.div
             key={title}
             initial={reduced ? {} : { opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.15 }}
-            whileHover={{ y: -12, boxShadow: '0 30px 60px rgba(37,99,235,0.15)' }}
-            className="relative bg-white rounded-3xl border-2 border-[#E2E8F0] overflow-hidden flex flex-col shadow-md transition-all duration-300 group"
+            whileHover={{ y: -12, border: '1px solid rgba(56,189,248,0.3)', boxShadow: '0 30px 60px rgba(56,189,248,0.1)' }}
+            className="relative bg-slate-900/40 rounded-3xl border border-slate-800/80 overflow-hidden flex flex-col shadow-md transition-all duration-300 group"
           >
             {/* Badge */}
             {badge && (
@@ -106,16 +106,16 @@ export default function MarketingWork() {
 
             <div className="p-6 flex flex-col gap-4 flex-1">
               <div>
-                <p className="text-[11px] font-black uppercase tracking-widest text-[#2563EB] mb-2">{role}</p>
-                <h3 className="font-black text-[#0F172A] text-lg leading-snug group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#2563EB] group-hover:to-[#0EA5E9] group-hover:bg-clip-text transition-all duration-300">
+                <p className="text-[11px] font-black uppercase tracking-widest text-[#38BDF8] mb-2">{role}</p>
+                <h3 className="font-black text-white text-lg leading-snug group-hover:text-[#38BDF8] transition-all duration-300">
                   {title}
                 </h3>
               </div>
-              <p className="text-[#64748B] text-sm leading-relaxed">{desc}</p>
+              <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
 
               <ul className="space-y-2 flex-1">
                 {highlights.map((h) => (
-                  <li key={h} className="flex items-start gap-2.5 text-xs text-[#64748B]">
+                  <li key={h} className="flex items-start gap-2.5 text-xs text-slate-455 text-slate-400">
                     <FaCheckCircle className="text-[#0EA5E9] mt-0.5 shrink-0" size={12} />
                     {h}
                   </li>
@@ -125,7 +125,7 @@ export default function MarketingWork() {
               {/* Tags */}
               <div className="flex flex-wrap gap-2 pt-2">
                 {tags.map((t) => (
-                  <span key={t} className="text-[10px] font-bold px-3 py-1 rounded-full bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-100 text-[#2563EB]">
+                  <span key={t} className="text-[10px] font-bold px-3 py-1 rounded-full bg-slate-950/50 border border-slate-800/80 text-[#38BDF8]">
                     {t}
                   </span>
                 ))}
@@ -141,11 +141,11 @@ export default function MarketingWork() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="mt-16 bg-gradient-to-r from-[#2563EB]/10 to-[#0EA5E9]/10 border-2 border-[#2563EB]/20 rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6"
+        className="mt-16 bg-slate-900/40 border border-[#2563EB]/25 rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 backdrop-blur-xl relative overflow-hidden shadow-xl"
       >
         <div className="flex-1">
-          <h3 className="text-2xl font-black text-[#0F172A] mb-2">Ready to See My Work?</h3>
-          <p className="text-[#64748B] text-base">Download my comprehensive CV with all marketing projects, achievements, and expertise</p>
+          <h3 className="text-2xl font-black text-white mb-2">Ready to See My Work?</h3>
+          <p className="text-slate-400 text-base">Download my comprehensive CV with all marketing projects, achievements, and expertise</p>
         </div>
         <motion.a
           href="/Paviyalan CV.pdf"
@@ -158,5 +158,7 @@ export default function MarketingWork() {
         </motion.a>
       </motion.div>
     </SectionWrapper>
+  );
+}
   );
 }
