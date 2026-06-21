@@ -115,7 +115,7 @@ export default function MarketingWork() {
 
               <ul className="space-y-2 flex-1">
                 {highlights.map((h) => (
-                  <li key={h} className="flex items-start gap-2.5 text-xs text-slate-455 text-slate-400">
+                  <li key={h} className="flex items-start gap-2.5 text-xs text-slate-400">
                     <FaCheckCircle className="text-[#0EA5E9] mt-0.5 shrink-0" size={12} />
                     {h}
                   </li>
