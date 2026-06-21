@@ -16,7 +16,7 @@ export default function SectionWrapper({ children, id, className = '' }) {
   );
 }
 
-export function SectionHeading({ eyebrow, title, subtitle, light = false }) {
+export function SectionHeading({ eyebrow, title, subtitle }) {
   return (
     <div className="text-center mb-16">
       {eyebrow && (
@@ -24,18 +24,18 @@ export function SectionHeading({ eyebrow, title, subtitle, light = false }) {
           {eyebrow}
         </span>
       )}
-      <h2 className={`text-3xl sm:text-4xl font-black mb-4 leading-tight ${light ? 'text-[#0F172A]' : 'text-white'}`}>
+      <h2 className="text-3xl sm:text-4xl font-black mb-4 leading-tight text-slate-900 dark:text-white">
         {title}
       </h2>
       {subtitle && (
-        <p className={`max-w-2xl mx-auto text-base leading-relaxed ${light ? 'text-[#64748B]' : 'text-slate-400'}`}>
+        <p className="max-w-2xl mx-auto text-base leading-relaxed text-slate-600 dark:text-slate-400">
           {subtitle}
         </p>
       )}
       <div className="mt-5 flex justify-center gap-2">
         <span className="h-1 w-10 rounded-full bg-[#2563EB]" />
         <span className="h-1 w-5  rounded-full bg-[#38BDF8]" />
-        <span className="h-1 w-2  rounded-full bg-slate-800" />
+        <span className="h-1 w-2  rounded-full bg-slate-300 dark:bg-slate-800" />
       </div>
     </div>
   );

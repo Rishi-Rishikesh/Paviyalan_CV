@@ -88,9 +88,9 @@ export default function Hero() {
     >
       {/* ── Background blobs ── */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="animate-blob absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-blue-900/40 blur-3xl" />
-        <div className="animate-blob absolute -bottom-32 right-0   w-[450px] h-[450px] rounded-full bg-cyan-900/30 blur-3xl" style={{ animationDelay: '3.5s' }} />
-        <div className="animate-blob absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-indigo-900/25 blur-2xl" style={{ animationDelay: '7s' }} />
+        <div className="animate-blob absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-blue-300/30 dark:bg-blue-900/40 blur-3xl" />
+        <div className="animate-blob absolute -bottom-32 right-0   w-[450px] h-[450px] rounded-full bg-cyan-300/20 dark:bg-cyan-900/30 blur-3xl" style={{ animationDelay: '3.5s' }} />
+        <div className="animate-blob absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-indigo-300/20 dark:bg-indigo-900/25 blur-2xl" style={{ animationDelay: '7s' }} />
 
         {/* Grid overlay */}
         <div className="absolute inset-0 opacity-[0.04]"
@@ -123,7 +123,7 @@ export default function Hero() {
 
             {/* Name */}
             <motion.div {...up(0.22)}>
-              <h1 className="text-4xl sm:text-5xl xl:text-[3.6rem] font-black text-white leading-[1.1] tracking-tight">
+              <h1 className="text-4xl sm:text-5xl xl:text-[3.6rem] font-black text-slate-900 dark:text-white leading-[1.1] tracking-tight">
                 Hi, I'm{' '}
                 <span className="shimmer-text block sm:inline">
                   Yokarasaa Paviyaalan
@@ -132,12 +132,12 @@ export default function Hero() {
             </motion.div>
 
             {/* Typing role */}
-            <motion.p {...up(0.36)} className="text-xl sm:text-2xl font-medium text-slate-300 min-h-[2rem]">
+            <motion.p {...up(0.36)} className="text-xl sm:text-2xl font-medium text-slate-800 dark:text-slate-300 min-h-[2rem]">
               <TypingText texts={roles} />
             </motion.p>
 
             {/* Intro */}
-            <motion.p {...up(0.48)} className="text-slate-400 text-base leading-relaxed max-w-lg">
+            <motion.p {...up(0.48)} className="text-slate-600 dark:text-slate-400 text-base leading-relaxed max-w-lg">
               IT undergraduate at SLIIT combining creative content production, digital marketing,
               software testing, and web technology skills to build impactful digital experiences.
             </motion.p>
@@ -156,7 +156,7 @@ export default function Hero() {
                 href="#qa-projects"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-xl hover:border-[#38BDF8] hover:text-[#38BDF8] transition-all text-sm glass"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 dark:border-white/20 text-slate-800 dark:text-white font-semibold rounded-xl hover:border-[#38BDF8] hover:text-[#38BDF8] transition-all text-sm glass"
               >
                 <FaFlask size={14} /> View QA Projects
               </motion.a>
@@ -185,7 +185,7 @@ export default function Hero() {
                   rel="noreferrer"
                   aria-label={label}
                   whileHover={{ y: -3, color: '#38BDF8' }}
-                  className="w-9 h-9 glass rounded-lg flex items-center justify-center text-slate-400 hover:text-[#38BDF8] transition-colors"
+                  className="w-9 h-9 glass rounded-lg flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-[#38BDF8] transition-colors"
                 >
                   {icon}
                 </motion.a>
@@ -246,7 +246,7 @@ export default function Hero() {
                 }}
               >
                 <p className="text-[#38BDF8] font-black text-base leading-none">{value}</p>
-                <p className="text-slate-400 text-[10px] mt-0.5 leading-tight">{label}</p>
+                <p className="text-slate-600 dark:text-slate-400 text-[10px] mt-0.5 leading-tight">{label}</p>
               </motion.div>
             ))}
 

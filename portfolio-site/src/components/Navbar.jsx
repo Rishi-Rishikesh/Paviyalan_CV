@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
-import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi';
+import { HiMenu, HiX } from 'react-icons/hi';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 const links = [
   { label: 'Home',        href: '#home' },
@@ -13,7 +14,7 @@ const links = [
   { label: 'Contact',     href: '#contact' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ theme, toggleTheme }) {
   const [open, setOpen]       = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive]   = useState('#home');
@@ -43,14 +44,14 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-1 left-0 right-0 z-50 transition-all duration-400 mx-4 rounded-2xl ${
           scrolled
-            ? 'bg-slate-950/70 backdrop-blur-xl shadow-2xl border border-slate-800/80'
+            ? 'bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl shadow-2xl border border-slate-200/80 dark:border-slate-800/80'
             : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between h-16">
           {/* Logo with gradient */}
           <a href="#home" className="flex items-center gap-1 group">
-            <span className="font-black text-3xl tracking-tight transition-all duration-300 text-white group-hover:scale-110">
+            <span className="font-black text-3xl tracking-tight transition-all duration-300 text-slate-900 dark:text-white group-hover:scale-110">
               Ya
             </span>
             <span className="font-black text-3xl bg-gradient-to-r from-[#0EA5E9] to-[#38BDF8] bg-clip-text text-transparent group-hover:from-[#38BDF8] group-hover:to-[#0EA5E9] transition-all">laan</span>
@@ -66,7 +67,7 @@ export default function Navbar() {
                 className={`relative px-3 py-2 text-sm font-semibold transition-all duration-300 group ${
                   active === href
                     ? 'text-[#38BDF8]'
-                    : 'text-slate-400 hover:text-white'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
                 {label}
@@ -77,8 +78,16 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA + hamburger */}
-          <div className="flex items-center gap-4">
+          {/* CTA + theme switcher + hamburger */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              className="p-2.5 rounded-xl bg-slate-100/80 hover:bg-slate-200/80 dark:bg-slate-900/60 dark:hover:bg-slate-800/60 text-slate-700 dark:text-yellow-400 transition-all duration-300 border border-slate-200 dark:border-slate-800 backdrop-blur-md cursor-pointer"
+              aria-label="Toggle Theme"
+            >
+              {theme === 'light' ? <FaMoon size={15} /> : <FaSun size={15} />}
+            </button>
+
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(37,99,235,0.6)' }}
@@ -88,8 +97,9 @@ export default function Navbar() {
               Hire Me
               <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>→</motion.span>
             </motion.a>
+
             <button
-              className="lg:hidden p-2 rounded-lg transition-all duration-300 text-white hover:bg-white/10"
+              className="lg:hidden p-2 rounded-lg transition-all duration-300 text-slate-900 dark:text-white hover:bg-black/5 dark:hover:bg-white/10"
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
             >
@@ -105,7 +115,7 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-gradient-to-b from-slate-900/95 to-slate-950/95 backdrop-blur-lg border-t border-white/10"
+              className="lg:hidden bg-gradient-to-b from-white/95 to-slate-50/95 dark:from-slate-900/95 dark:to-slate-950/95 backdrop-blur-lg border-t border-slate-200 dark:border-white/10"
             >
               <nav className="flex flex-col px-6 py-5 gap-2">
                 {links.map(({ label, href }) => (
@@ -116,7 +126,7 @@ export default function Navbar() {
                     className={`px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
                       active === href
                         ? 'text-[#38BDF8] bg-[#38BDF8]/10 border border-[#38BDF8]/30'
-                        : 'text-slate-300 hover:text-white hover:bg-white/5'
+                        : 'text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
                     }`}
                   >
                     {label}
@@ -145,7 +155,7 @@ export default function Navbar() {
           transition={{ delay: 1.2, duration: 0.6 }}
           className="fixed bottom-16 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
         >
-          <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest">SCROLL TO EXPLORE</span>
+          <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest">SCROLL TO EXPLORE</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}

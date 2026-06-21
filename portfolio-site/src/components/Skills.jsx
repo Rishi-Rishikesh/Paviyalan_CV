@@ -9,7 +9,7 @@ const categories = [
     id: 'marketing', label: 'Digital Marketing',
     icon: <FaBullhorn size={16} />, 
     gradient: 'from-blue-600 to-blue-400',
-    accent: 'bg-slate-900/40 text-slate-300 border-slate-800 hover:border-blue-500/30',
+    accent: 'bg-white/60 dark:bg-slate-900/40 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-blue-500/30 shadow-sm',
     activeAccent: 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/30 border-blue-500/50',
     skills: ['Social Media Management', 'Content Strategy', 'Audience Analysis', 'Organic Growth', 'Performance Tracking'],
   },
@@ -17,7 +17,7 @@ const categories = [
     id: 'content', label: 'Content Creation',
     icon: <FaVideo size={16} />, 
     gradient: 'from-purple-600 to-purple-400',
-    accent: 'bg-slate-900/40 text-slate-300 border-slate-800 hover:border-purple-500/30',
+    accent: 'bg-white/60 dark:bg-slate-900/40 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-purple-500/30 shadow-sm',
     activeAccent: 'bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-lg shadow-purple-500/30 border-purple-500/50',
     skills: ['Scriptwriting', 'Video Direction', 'Short-Form Video', 'Ad Production', 'Storyboarding', 'Creative Storytelling'],
   },
@@ -25,7 +25,7 @@ const categories = [
     id: 'editing', label: 'Editing Tools',
     icon: <FaPencilAlt size={16} />, 
     gradient: 'from-orange-600 to-orange-400',
-    accent: 'bg-slate-900/40 text-slate-300 border-slate-800 hover:border-orange-500/30',
+    accent: 'bg-white/60 dark:bg-slate-900/40 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-orange-500/30 shadow-sm',
     activeAccent: 'bg-gradient-to-r from-orange-600 to-orange-500 text-white shadow-lg shadow-orange-500/30 border-orange-500/50',
     skills: ['DaVinci Resolve', 'CapCut'],
   },
@@ -33,7 +33,7 @@ const categories = [
     id: 'qa', label: 'QA & Testing',
     icon: <FaFlask size={16} />, 
     gradient: 'from-emerald-600 to-emerald-400',
-    accent: 'bg-slate-900/40 text-slate-300 border-slate-800 hover:border-emerald-500/30',
+    accent: 'bg-white/60 dark:bg-slate-900/40 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-emerald-500/30 shadow-sm',
     activeAccent: 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow-lg shadow-emerald-500/30 border-emerald-500/50',
     skills: ['Manual Testing', 'Functional Testing', 'UI Testing', 'Regression Testing Basics', 'Test Case Preparation', 'Bug Reporting', 'API Testing Basics', 'Postman'],
   },
@@ -41,7 +41,7 @@ const categories = [
     id: 'tech', label: 'Technical Skills',
     icon: <FaCode size={16} />, 
     gradient: 'from-cyan-600 to-cyan-400',
-    accent: 'bg-slate-900/40 text-slate-300 border-slate-800 hover:border-cyan-500/30',
+    accent: 'bg-white/60 dark:bg-slate-900/40 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-cyan-500/30 shadow-sm',
     activeAccent: 'bg-gradient-to-r from-cyan-600 to-cyan-500 text-white shadow-lg shadow-cyan-500/30 border-cyan-500/50',
     skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express.js', 'MySQL', 'MongoDB', 'Git', 'GitHub'],
   },
@@ -53,8 +53,8 @@ const toolIcons = [
   { icon: <SiMongodb size={28} className="text-green-600" />,   label: 'MongoDB' },
   { icon: <SiMysql size={28} className="text-blue-500" />,      label: 'MySQL' },
   { icon: <SiPostman size={28} className="text-orange-500" />,  label: 'Postman' },
-  { icon: <SiGithub size={28} className="text-white" />,     label: 'GitHub' },
-  { icon: <SiExpress size={28} className="text-slate-400" />,    label: 'Express' },
+  { icon: <SiGithub size={28} className="text-slate-800 dark:text-white" />,     label: 'GitHub' },
+  { icon: <SiExpress size={28} className="text-slate-500 dark:text-slate-400" />,    label: 'Express' },
   { icon: <SiDavinciresolve size={28} className="text-yellow-500" />, label: 'DaVinci' },
 ];
 
@@ -79,10 +79,10 @@ export default function Skills() {
             onClick={() => setActive(id)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`inline-flex items-center gap-2.5 px-5 py-3 rounded-full text-sm font-bold border transition-all duration-300 ${
+            className={`inline-flex items-center gap-2.5 px-5 py-3 rounded-full text-sm font-bold border transition-all duration-300 cursor-pointer ${
               active === id 
                 ? `${activeAccent}` 
-                : `${accent} border-slate-800`
+                : `${accent}`
             }`}
           >
             {icon} <span>{label}</span>
@@ -99,7 +99,7 @@ export default function Skills() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-slate-900/45 backdrop-blur-xl border border-slate-850 rounded-3xl p-8 shadow-2xl mb-12 relative overflow-hidden"
+            className="bg-white/60 dark:bg-slate-900/45 backdrop-blur-xl border border-slate-200 dark:border-slate-850 rounded-3xl p-8 shadow-2xl mb-12 relative overflow-hidden"
           >
             {/* Top accent glow line */}
             <div className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${current.gradient}`} />
@@ -115,8 +115,8 @@ export default function Skills() {
                   {current.icon}
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-black text-white text-2xl">{current.label}</h3>
-                  <p className="text-sm text-slate-400 mt-1 font-semibold">{current.skills.length} skills mastered</p>
+                  <h3 className="font-black text-slate-900 dark:text-white text-2xl">{current.label}</h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 font-semibold">{current.skills.length} skills mastered</p>
                 </div>
               </motion.div>
               
@@ -128,7 +128,7 @@ export default function Skills() {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{ delay: i * 0.05, duration: 0.3 }}
                     whileHover={{ scale: 1.05, border: '1px solid rgba(56,189,248,0.4)', boxShadow: '0 8px 20px rgba(56,189,248,0.1)' }}
-                    className="text-sm text-slate-200 bg-slate-950/50 backdrop-blur-sm border border-slate-800 px-5 py-2.5 rounded-xl font-semibold hover:bg-slate-950 transition-all cursor-default shadow-md"
+                    className="text-sm text-slate-800 dark:text-slate-200 bg-slate-100/60 dark:bg-slate-950/50 backdrop-blur-sm border border-slate-200 dark:border-slate-800 px-5 py-2.5 rounded-xl font-semibold hover:bg-slate-200 dark:hover:bg-slate-950 transition-all cursor-default shadow-md"
                   >
                     {skill}
                   </motion.span>
@@ -155,12 +155,12 @@ export default function Skills() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.07 }}
             whileHover={{ y: -8, border: '1px solid rgba(56,189,248,0.3)', boxShadow: '0 12px 24px rgba(56,189,248,0.08)' }}
-            className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-5 flex flex-col items-center gap-3 cursor-default transition-all duration-300 shadow-md group"
+            className="bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-5 flex flex-col items-center gap-3 cursor-default transition-all duration-300 shadow-md group"
           >
-            <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-850 shadow-inner group-hover:scale-110 transition-transform duration-300">
+            <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-850 shadow-inner group-hover:scale-110 transition-transform duration-300">
               {icon}
             </div>
-            <span className="text-[11px] text-slate-400 font-bold text-center leading-tight">{label}</span>
+            <span className="text-[11px] text-slate-500 dark:text-slate-400 font-bold text-center leading-tight">{label}</span>
           </motion.div>
         ))}
       </motion.div>

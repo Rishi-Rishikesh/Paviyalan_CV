@@ -4,10 +4,9 @@ import SectionWrapper, { SectionHeading } from './SectionWrapper';
 
 const cases = [
   {
-    gradient: 'from-[#2563EB] to-[#0EA5E9]',
-    lightGradient: 'from-blue-100 to-cyan-100',
-    iconBg: 'bg-white/10',
-    icon: <FaBullhorn className="text-white" size={22} />,
+    gradient: 'from-blue-600/10 to-cyan-400/10 dark:from-[#2563EB] dark:to-[#0EA5E9]',
+    iconBg: 'bg-slate-900/5 dark:bg-white/10',
+    icon: <FaBullhorn className="text-blue-600 dark:text-white" size={22} />,
     year: '2025',
     role: 'Digital Marketing & Content Production',
     title: 'TeachMe Promotional Campaign',
@@ -22,10 +21,9 @@ const cases = [
     tags: ['Campaign', 'Video', 'Social Media'],
   },
   {
-    gradient: 'from-purple-600 to-purple-400',
-    lightGradient: 'from-purple-100 to-pink-100',
-    iconBg: 'bg-white/10',
-    icon: <FaPlay className="text-white" size={20} />,
+    gradient: 'from-purple-600/10 to-purple-400/10 dark:from-purple-600 dark:to-purple-400',
+    iconBg: 'bg-slate-900/5 dark:bg-white/10',
+    icon: <FaPlay className="text-purple-600 dark:text-white" size={20} />,
     year: '2023–Present',
     role: 'Creative Director / Co-Director',
     title: 'YouTube Music Content',
@@ -41,10 +39,9 @@ const cases = [
     badge: '★ Featured',
   },
   {
-    gradient: 'from-cyan-600 to-blue-400',
-    lightGradient: 'from-cyan-100 to-blue-100',
-    iconBg: 'bg-white/10',
-    icon: <FaHashtag className="text-white" size={20} />,
+    gradient: 'from-cyan-600/10 to-blue-400/10 dark:from-cyan-600 dark:to-blue-400',
+    iconBg: 'bg-slate-900/5 dark:bg-white/10',
+    icon: <FaHashtag className="text-cyan-600 dark:text-white" size={20} />,
     year: '2023–Present',
     role: 'Content Creator & Social Media Manager',
     title: 'Social Media Content Growth',
@@ -77,8 +74,8 @@ export default function MarketingWork() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.15 }}
-            whileHover={{ y: -12, border: '1px solid rgba(56,189,248,0.3)', boxShadow: '0 30px 60px rgba(56,189,248,0.1)' }}
-            className="relative bg-slate-900/40 rounded-3xl border border-slate-800/80 overflow-hidden flex flex-col shadow-md transition-all duration-300 group"
+            whileHover={{ y: -12, border: '1px solid rgba(56,189,248,0.3)', boxShadow: '0 30px 60px rgba(56,189,248,0.08)' }}
+            className="relative bg-white/60 dark:bg-slate-900/40 rounded-3xl border border-slate-200 dark:border-slate-800/80 overflow-hidden flex flex-col shadow-md transition-all duration-300 group"
           >
             {/* Badge */}
             {badge && (
@@ -96,10 +93,10 @@ export default function MarketingWork() {
               {/* Decorative blur */}
               <div className="absolute inset-0 opacity-20" style={{ background: `radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3), transparent)` }} />
               
-              <div className={`w-12 h-12 ${iconBg} rounded-2xl flex items-center justify-center backdrop-blur-md border border-white/20`}>
+              <div className={`w-12 h-12 ${iconBg} rounded-2xl flex items-center justify-center backdrop-blur-md border border-slate-200/50 dark:border-white/20`}>
                 {icon}
               </div>
-              <span className="text-white/90 text-[11px] font-bold bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/30">
+              <span className="text-slate-800 dark:text-white/90 text-[11px] font-bold bg-slate-900/5 dark:bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200 dark:border-white/30">
                 {year}
               </span>
             </div>
@@ -107,15 +104,15 @@ export default function MarketingWork() {
             <div className="p-6 flex flex-col gap-4 flex-1">
               <div>
                 <p className="text-[11px] font-black uppercase tracking-widest text-[#38BDF8] mb-2">{role}</p>
-                <h3 className="font-black text-white text-lg leading-snug group-hover:text-[#38BDF8] transition-all duration-300">
+                <h3 className="font-black text-slate-900 dark:text-white text-lg leading-snug group-hover:text-[#38BDF8] transition-all duration-300">
                   {title}
                 </h3>
               </div>
-              <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{desc}</p>
 
               <ul className="space-y-2 flex-1">
                 {highlights.map((h) => (
-                  <li key={h} className="flex items-start gap-2.5 text-xs text-slate-400">
+                  <li key={h} className="flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-400">
                     <FaCheckCircle className="text-[#0EA5E9] mt-0.5 shrink-0" size={12} />
                     {h}
                   </li>
@@ -125,7 +122,7 @@ export default function MarketingWork() {
               {/* Tags */}
               <div className="flex flex-wrap gap-2 pt-2">
                 {tags.map((t) => (
-                  <span key={t} className="text-[10px] font-bold px-3 py-1 rounded-full bg-slate-950/50 border border-slate-800/80 text-[#38BDF8]">
+                  <span key={t} className="text-[10px] font-bold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800/80 text-[#38BDF8]">
                     {t}
                   </span>
                 ))}
@@ -141,11 +138,11 @@ export default function MarketingWork() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="mt-16 bg-slate-900/40 border border-[#2563EB]/25 rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 backdrop-blur-xl relative overflow-hidden shadow-xl"
+        className="mt-16 bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-[#2563EB]/25 rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 backdrop-blur-xl relative overflow-hidden shadow-xl"
       >
         <div className="flex-1">
-          <h3 className="text-2xl font-black text-white mb-2">Ready to See My Work?</h3>
-          <p className="text-slate-400 text-base">Download my comprehensive CV with all marketing projects, achievements, and expertise</p>
+          <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Ready to See My Work?</h3>
+          <p className="text-slate-600 dark:text-slate-400 text-base">Download my comprehensive CV with all marketing projects, achievements, and expertise</p>
         </div>
         <motion.a
           href="/Paviyalan CV.pdf"
