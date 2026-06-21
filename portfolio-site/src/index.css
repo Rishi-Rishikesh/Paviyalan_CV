@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-navy: #0F172A;
   --color-blue: #2563EB;
@@ -15,10 +17,16 @@
 * { scroll-behavior: smooth; box-sizing: border-box; }
 
 body {
-  background-color: #020617;
-  color: #F1F5F9;
+  background-color: #F8FAFC;
+  color: #0F172A;
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #020617;
+  color: #F1F5F9;
 }
 
 /* ── Keyframes ── */
@@ -61,17 +69,29 @@ body {
 .animate-cursor     { animation: typing-cursor 0.75s step-end infinite; }
 
 .glass {
-  background: rgba(15, 23, 42, 0.45);
+  background: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 .glass-card {
-  background: rgba(15, 23, 42, 0.65);
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
+
+.dark .glass {
+  background: rgba(15, 23, 42, 0.45);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.dark .glass-card {
+  background: rgba(15, 23, 42, 0.65);
+  border-color: rgba(56, 189, 248, 0.15);
+}
+
 .shimmer-text {
   background: linear-gradient(90deg, #38BDF8, #ffffff, #38BDF8, #3B82F6);
   background-size: 200% auto;
@@ -81,15 +101,24 @@ body {
   animation: shimmer 3s linear infinite;
 }
 .hero-gradient {
+  background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 50%, #CBD5E1 100%);
+  transition: background 0.3s ease;
+}
+.dark .hero-gradient {
   background: linear-gradient(135deg, #020617 0%, #0B1528 50%, #0F1F3D 100%);
 }
-.section-light { background-color: #070c17; }
-.section-white { background-color: #030712; }
+.section-light { background-color: #F1F5F9; transition: background-color 0.3s ease; }
+.section-white { background-color: #FFFFFF; transition: background-color 0.3s ease; }
+
+.dark .section-light { background-color: #070c17; }
+.dark .section-white { background-color: #030712; }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-track { background: #F8FAFC; }
 ::-webkit-scrollbar-thumb { background: #2563EB; border-radius: 3px; }
+
+.dark ::-webkit-scrollbar-track { background: #020617; }
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
