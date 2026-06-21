@@ -5,25 +5,33 @@ import SectionWrapper, { SectionHeading } from './SectionWrapper';
 const highlights = [
   {
     icon: <FaBullhorn size={20} />,
-    color: 'text-[#2563EB]', bg: 'bg-gradient-to-br from-blue-100 to-blue-50', border: 'border-t-[#2563EB]',
+    color: 'text-blue-400 group-hover:text-blue-300',
+    bg: 'bg-slate-900/40 border-slate-800 hover:border-blue-500/30 shadow-blue-950/10 hover:shadow-blue-500/10',
+    iconBg: 'bg-blue-500/10 border border-blue-500/20',
     label: 'Digital Marketing',
     desc: 'Campaign planning, content strategy, social media management & analytics.',
   },
   {
     icon: <FaVideo size={20} />,
-    color: 'text-purple-500', bg: 'bg-gradient-to-br from-purple-100 to-purple-50', border: 'border-t-purple-500',
+    color: 'text-purple-400 group-hover:text-purple-300',
+    bg: 'bg-slate-900/40 border-slate-800 hover:border-purple-500/30 shadow-purple-950/10 hover:shadow-purple-500/10',
+    iconBg: 'bg-purple-500/10 border border-purple-500/20',
     label: 'Content Creation',
     desc: 'Scriptwriting, video direction, short-form content & ad production.',
   },
   {
     icon: <FaFlask size={20} />,
-    color: 'text-emerald-500', bg: 'bg-gradient-to-br from-emerald-100 to-emerald-50', border: 'border-t-emerald-500',
+    color: 'text-emerald-400 group-hover:text-emerald-300',
+    bg: 'bg-slate-900/40 border-slate-800 hover:border-emerald-500/30 shadow-emerald-950/10 hover:shadow-emerald-500/10',
+    iconBg: 'bg-emerald-500/10 border border-emerald-500/20',
     label: 'QA & Testing',
     desc: 'Manual testing, bug reporting, API testing with Postman.',
   },
   {
     icon: <FaCode size={20} />,
-    color: 'text-[#38BDF8]', bg: 'bg-gradient-to-br from-sky-100 to-sky-50', border: 'border-t-[#38BDF8]',
+    color: 'text-cyan-400 group-hover:text-cyan-300',
+    bg: 'bg-slate-900/40 border-slate-800 hover:border-cyan-500/30 shadow-cyan-950/10 hover:shadow-cyan-500/10',
+    iconBg: 'bg-cyan-500/10 border border-cyan-500/20',
     label: 'Web Development',
     desc: 'Full-stack experience — MERN stack, HTML/CSS/JS, Git & GitHub.',
   },
@@ -55,17 +63,17 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="pl-6 border-l-4 border-gradient-to-b from-[#2563EB] to-[#38BDF8] space-y-4 group"
+            className="pl-6 border-l-4 border-blue-500 space-y-4 group"
           >
-            <p className="text-[#64748B] text-base leading-relaxed">
+            <p className="text-slate-400 text-base leading-relaxed">
               Yokarasaa Paviyaalan is an{' '}
-              <span className="font-bold text-[#0F172A] bg-gradient-to-r from-blue-100 to-cyan-100 px-2 py-1 rounded-lg inline-block">IT undergraduate at SLIIT</span> who combines
+              <span className="font-bold text-white bg-gradient-to-r from-blue-500/15 to-cyan-500/15 border border-[#38BDF8]/20 px-2.5 py-1 rounded-lg inline-block">IT undergraduate at SLIIT</span> who combines
               digital marketing, content creation, software testing, and technical project experience.
             </p>
-            <p className="text-[#64748B] text-base leading-relaxed">
+            <p className="text-slate-400 text-base leading-relaxed">
               He is seeking internship opportunities where he can apply creative thinking, analytical
               skills, communication, QA testing, and web technology knowledge in a{' '}
-              <span className="font-bold text-[#0F172A] bg-gradient-to-r from-cyan-100 to-blue-100 px-2 py-1 rounded-lg inline-block">professional environment</span>.
+              <span className="font-bold text-white bg-gradient-to-r from-cyan-500/15 to-blue-500/15 border border-[#38BDF8]/20 px-2.5 py-1 rounded-lg inline-block">professional environment</span>.
             </p>
           </motion.div>
 
@@ -80,8 +88,8 @@ export default function About() {
             {['SLIIT · IT Undergraduate', 'Open to Internships', 'Colombo, Sri Lanka'].map((t) => (
               <motion.span
                 key={t}
-                whileHover={{ scale: 1.05 }}
-                className="text-xs font-bold px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-cyan-50 text-[#2563EB] border-2 border-blue-200 cursor-default"
+                whileHover={{ scale: 1.05, border: '1px solid rgba(56,189,248,0.5)' }}
+                className="text-xs font-bold px-4 py-2 rounded-full bg-slate-900/60 text-[#38BDF8] border border-blue-500/20 cursor-default backdrop-blur-md shadow-lg"
               >
                 {t}
               </motion.span>
@@ -99,15 +107,16 @@ export default function About() {
             {stats.map(({ val, label, color }, i) => (
               <motion.div
                 key={label}
-                whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(37,99,235,0.15)' }}
+                whileHover={{ y: -4, border: '1px solid rgba(56,189,248,0.5)', boxShadow: '0 12px 32px rgba(56,189,248,0.15)' }}
                 initial={reduced ? {} : { opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                className={`bg-gradient-to-br ${color} border-2 border-white rounded-2xl p-4 text-center shadow-lg transition-all duration-300`}
+                className="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 text-center shadow-lg transition-all duration-300 backdrop-blur-md relative overflow-hidden group"
               >
-                <p className="text-2xl font-black text-white">{val}</p>
-                <p className="text-xs text-white/90 mt-1 font-semibold leading-tight">{label}</p>
+                <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${color}`} />
+                <p className={`text-2xl font-black bg-gradient-to-r ${color} bg-clip-text text-transparent`}>{val}</p>
+                <p className="text-[10px] text-slate-400 mt-1 font-semibold leading-tight">{label}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -122,7 +131,7 @@ export default function About() {
           >
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(37,99,235,0.4)' }}
               whileTap={{ scale: 0.95 }}
               className="px-6 py-3 bg-gradient-to-r from-[#2563EB] to-[#0EA5E9] text-white text-sm font-bold rounded-xl shadow-lg shadow-blue-500/30 hover:shadow-xl transition-all duration-300"
             >
@@ -133,7 +142,7 @@ export default function About() {
               download
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 border-2 border-[#2563EB] text-[#2563EB] text-sm font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 flex items-center gap-2 inline-flex"
+              className="px-6 py-3 border border-[#2563EB]/40 text-[#38BDF8] text-sm font-bold rounded-xl hover:bg-[#2563EB]/10 transition-all duration-300 flex items-center gap-2 inline-flex glass"
             >
               <FaDownload size={14} /> Download CV
             </motion.a>
@@ -142,25 +151,27 @@ export default function About() {
 
         {/* Right — cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {highlights.map(({ icon, color, bg, border, label, desc }, i) => (
+          {highlights.map(({ icon, color, bg, iconBg, label, desc }, i) => (
             <motion.div
               key={label}
               initial={reduced ? {} : { opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              whileHover={{ y: -6, boxShadow: '0 16px 48px rgba(37,99,235,0.12)' }}
-              className={`${bg} border-2 ${border} rounded-2xl p-6 cursor-default transition-all duration-300 shadow-md hover:shadow-lg group`}
+              whileHover={{ y: -6 }}
+              className={`border ${bg} rounded-2xl p-6 cursor-default transition-all duration-300 shadow-md hover:shadow-lg group`}
             >
-              <div className={`w-12 h-12 ${color} bg-white/60 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 ${iconBg} ${color} group-hover:scale-110`}>
                 {icon}
               </div>
-              <p className="font-bold text-[#0F172A] text-base mb-2">{label}</p>
-              <p className="text-[#64748B] text-sm leading-relaxed">{desc}</p>
+              <p className="font-bold text-white text-base mb-2">{label}</p>
+              <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
             </motion.div>
           ))}
         </div>
       </div>
     </SectionWrapper>
+  );
+}
   );
 }
