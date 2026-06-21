@@ -13,17 +13,17 @@ const roles = [
 
 const socialLinks = [
   { icon: <FaLinkedin size={18} />, href: 'https://www.linkedin.com/in/paviyaalan/', label: 'LinkedIn' },
-  { icon: <FaGithub size={18} />,   href: 'https://github.com/PaviYaalan',       label: 'GitHub' },
-  { icon: <FaEnvelope size={18} />, href: 'yalanpavi@gmail.com',           label: 'Email' },
-  { icon: <FaInstagram size={18} />,href: '#',                                    label: 'Instagram' },
-  { icon: <FaYoutube size={18} />,  href: '#',                                    label: 'YouTube' },
+  { icon: <FaGithub size={18} />, href: 'https://github.com/PaviYaalan', label: 'GitHub' },
+  { icon: <FaEnvelope size={18} />, href: 'yalanpavi@gmail.com', label: 'Email' },
+  { icon: <FaInstagram size={18} />, href: '#', label: 'Instagram' },
+  { icon: <FaYoutube size={18} />, href: '#', label: 'YouTube' },
 ];
 
 const floatCards = [
-  { value: '60K+', label: 'YouTube Views',    pos: 'top-6 -left-4 sm:-left-10',   delay: 0 },
-  { value: '20+',  label: 'Short Videos',     pos: 'top-1/3 -right-4 sm:-right-10',delay: 0.3 },
-  { value: '4+',   label: 'QA Projects',      pos: 'bottom-1/3 -left-4 sm:-left-10',delay: 0.6 },
-  { value: '✦',    label: 'Open to Internships', pos: 'bottom-4 -right-2 sm:-right-8', delay: 0.9 },
+  { value: '60K+', label: 'YouTube Views', pos: 'top-6 -left-4 sm:-left-10', delay: 0 },
+  { value: '20+', label: 'Short Videos', pos: 'top-1/3 -right-4 sm:-right-10', delay: 0.3 },
+  { value: '4+', label: 'QA Projects', pos: 'bottom-1/3 -left-4 sm:-left-10', delay: 0.6 },
+  { value: '✦', label: 'Open to Internships', pos: 'bottom-4 -right-2 sm:-right-8', delay: 0.9 },
 ];
 
 const chips = [
@@ -32,9 +32,9 @@ const chips = [
 ];
 
 function TypingText({ texts }) {
-  const [idx, setIdx]           = useState(0);
+  const [idx, setIdx] = useState(0);
   const [displayed, setDisplayed] = useState('');
-  const [deleting, setDeleting]   = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const reduced = useReducedMotion();
 
   useEffect(() => {
@@ -65,18 +65,18 @@ const up = (delay = 0) => ({
 });
 
 export default function Hero() {
-  const reduced   = useReducedMotion();
-  const heroRef   = useRef(null);
-  const mouseX    = useMotionValue(0);
-  const mouseY    = useMotionValue(0);
-  const springX   = useSpring(mouseX, { stiffness: 80, damping: 20 });
-  const springY   = useSpring(mouseY, { stiffness: 80, damping: 20 });
+  const reduced = useReducedMotion();
+  const heroRef = useRef(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 80, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 80, damping: 20 });
 
   const handleMouseMove = (e) => {
     if (reduced || !heroRef.current) return;
     const rect = heroRef.current.getBoundingClientRect();
     mouseX.set(e.clientX - rect.left - rect.width / 2);
-    mouseY.set(e.clientY - rect.top  - rect.height / 2);
+    mouseY.set(e.clientY - rect.top - rect.height / 2);
   };
 
   return (
@@ -165,8 +165,8 @@ export default function Hero() {
             {/* CV Download row */}
             <motion.div {...up(0.66)} className="flex flex-wrap gap-3">
               <motion.a
-                href="/Yalaan.pdf"
-                download="Yalaan-CV.pdf"
+                href="/yalaan.pdf"
+                download="yalaan-CV.pdf"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#38BDF8]/15 border border-[#38BDF8]/40 text-[#38BDF8] font-semibold rounded-xl hover:bg-[#38BDF8]/25 transition-all text-sm"
@@ -215,7 +215,7 @@ export default function Hero() {
               className="relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] rounded-2xl overflow-hidden border-4 border-[#38BDF8]/60 shadow-2xl shadow-cyan-500/30 z-10"
             >
               <img
-                src="/Yalaan.png"
+                src="/yalaan.png"
                 alt="Yokarasaa Paviyaalan"
                 className="w-full h-full object-cover object-top"
                 onError={(e) => {
@@ -253,11 +253,11 @@ export default function Hero() {
             {/* Floating skill chips */}
             <div className="absolute inset-0 pointer-events-none">
               {chips.map((chip, i) => {
-                const angle  = (i / chips.length) * 360;
+                const angle = (i / chips.length) * 360;
                 const radius = 195;
-                const rad    = (angle * Math.PI) / 180;
-                const x      = 50 + (radius / 3) * Math.cos(rad);
-                const y      = 50 + (radius / 3) * Math.sin(rad);
+                const rad = (angle * Math.PI) / 180;
+                const x = 50 + (radius / 3) * Math.cos(rad);
+                const y = 50 + (radius / 3) * Math.sin(rad);
                 return (
                   <motion.span
                     key={chip}
@@ -267,7 +267,7 @@ export default function Hero() {
                     className="absolute hidden xl:block text-[9px] font-semibold px-2 py-1 rounded-full glass border border-[#38BDF8]/20 text-[#38BDF8] whitespace-nowrap"
                     style={{
                       left: `${x}%`,
-                      top:  `${y}%`,
+                      top: `${y}%`,
                       transform: 'translate(-50%,-50%)',
                       animation: `float-slow ${3.5 + i * 0.4}s ease-in-out infinite`,
                       animationDelay: `${i * 0.25}s`,
