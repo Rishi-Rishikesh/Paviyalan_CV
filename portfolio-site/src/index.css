@@ -16,7 +16,7 @@
 
 body {
   background-color: #020617;
-  color: #0F172A;
+  color: #F1F5F9;
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
 }
@@ -61,16 +61,16 @@ body {
 .animate-cursor     { animation: typing-cursor 0.75s step-end infinite; }
 
 .glass {
-  background: rgba(255,255,255,0.05);
+  background: rgba(15, 23, 42, 0.45);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 .glass-card {
-  background: rgba(255,255,255,0.07);
+  background: rgba(15, 23, 42, 0.65);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(56,189,248,0.2);
+  border: 1px solid rgba(56, 189, 248, 0.15);
 }
 .shimmer-text {
   background: linear-gradient(90deg, #38BDF8, #ffffff, #38BDF8, #3B82F6);
@@ -81,10 +81,10 @@ body {
   animation: shimmer 3s linear infinite;
 }
 .hero-gradient {
-  background: linear-gradient(135deg, #020617 0%, #0F172A 50%, #1E3A8A 100%);
+  background: linear-gradient(135deg, #020617 0%, #0B1528 50%, #0F1F3D 100%);
 }
-.section-light { background-color: #F8FAFC; }
-.section-white { background-color: #FFFFFF; }
+.section-light { background-color: #070c17; }
+.section-white { background-color: #030712; }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 5px; }
