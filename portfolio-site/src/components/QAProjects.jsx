@@ -133,7 +133,7 @@ export default function QAProjects() {
           <p className="text-slate-600 dark:text-slate-400 text-base">Download my QA & Testing CV with all projects, methodologies, and achievements</p>
         </div>
         <motion.a
-          href="/Paviyalan CV.pdf"
+          href="/paviyalan-cv.pdf"
           download
           whileHover={{ scale: 1.08, boxShadow: '0 12px 40px rgba(16,185,129,0.4)' }}
           whileTap={{ scale: 0.95 }}

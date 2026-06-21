@@ -69,7 +69,7 @@ export default function Footer() {
             <p className="text-slate-900 dark:text-white font-bold text-sm mb-4 uppercase tracking-widest">Download CV</p>
             <div className="space-y-3">
               <a
-                href="/Paviyalan CV.pdf"
+                href="/Paviyalan-cv.pdf"
                 download
                 className="flex items-center gap-2.5 px-4 py-3 bg-[#2563EB]/10 border border-[#2563EB]/30 rounded-xl text-sm font-semibold text-[#2563EB] dark:text-[#38BDF8] hover:bg-[#2563EB]/20 hover:border-[#2563EB]/60 transition-all group cursor-pointer"
               >
