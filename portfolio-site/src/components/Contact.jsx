@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaPaperPlane, FaDownload } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaPaperPlane, FaDownload, FaUser, FaCommentDots } from 'react-icons/fa';
 import SectionWrapper, { SectionHeading } from './SectionWrapper';
 
 const contacts = [
@@ -12,8 +12,57 @@ const contacts = [
 
 export default function Contact() {
   const reduced = useReducedMotion();
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
-  const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+    website: '',
+  });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState('');
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || 'Something went wrong');
+      }
+
+      setStatus('success');
+      setForm({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+        website: '',
+      });
+    } catch (error) {
+      setStatus('error');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const inputClass = 'w-full px-4 py-3 bg-slate-100/60 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800/80 rounded-xl text-sm text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-[#38BDF8] focus:ring-2 focus:ring-[#38BDF8]/10 transition-all';
 
@@ -64,7 +113,7 @@ export default function Contact() {
             <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href="/paviyalancv.pdf"
-                download="paviyalancv.pdf"
+                download
                 className="flex items-center justify-center gap-2 px-5 py-3 bg-[#2563EB] text-white text-xs font-bold rounded-xl hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/20 hover:scale-105 transition-all cursor-pointer"
               >
                 <FaDownload size={12} /> Marketing CV
@@ -88,33 +137,100 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-7"
         >
-          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid sm:grid-cols-2 gap-4">
+          <form className="space-y-5" onSubmit={handleSubmit}>
+            {/* Hidden spam trap */}
+            <input
+              type="text"
+              name="website"
+              value={form.website}
+              onChange={handleChange}
+              className="hidden"
+              tabIndex="-1"
+              autoComplete="off"
+            />
+
+            <div className="grid sm:grid-cols-2 gap-5">
               <div>
-                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">Your Name</label>
-                <input type="text" value={form.name} onChange={set('name')} placeholder="Full name" className={inputClass} />
+                <label className="block text-sm font-semibold mb-2 text-slate-700 dark:text-slate-300">Name</label>
+                <div className="relative">
+                  <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
+                  <input
+                    type="text"
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    required
+                    placeholder="Your name"
+                    className={`${inputClass} pl-11`}
+                  />
+                </div>
               </div>
+
               <div>
-                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">Email Address</label>
-                <input type="email" value={form.email} onChange={set('email')} placeholder="your@email.com" className={inputClass} />
+                <label className="block text-sm font-semibold mb-2 text-slate-700 dark:text-slate-300">Email</label>
+                <div className="relative">
+                  <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
+                  <input
+                    type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    required
+                    placeholder="your@email.com"
+                    className={`${inputClass} pl-11`}
+                  />
+                </div>
               </div>
             </div>
+
             <div>
-              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">Subject</label>
-              <input type="text" value={form.subject} onChange={set('subject')} placeholder="Internship opportunity / Collaboration" className={inputClass} />
+              <label className="block text-sm font-semibold mb-2 text-slate-700 dark:text-slate-300">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                value={form.subject}
+                onChange={handleChange}
+                placeholder="Internship / Collaboration / Project"
+                className={inputClass}
+              />
             </div>
+
             <div>
-              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">Message</label>
-              <textarea rows={4} value={form.message} onChange={set('message')} placeholder="Tell me about the opportunity or project..." className={`${inputClass} resize-none`} />
+              <label className="block text-sm font-semibold mb-2 text-slate-700 dark:text-slate-300">Message</label>
+              <div className="relative">
+                <FaCommentDots className="absolute left-4 top-4 text-slate-500" />
+                <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  required
+                  rows="4"
+                  placeholder="Write your message..."
+                  className={`${inputClass} pl-11 resize-none`}
+                />
+              </div>
             </div>
-            <motion.button
+
+            <button
               type="submit"
-              whileHover={{ scale: 1.02, boxShadow: '0 8px 24px rgba(37,99,235,0.3)' }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-[#2563EB] text-white text-sm font-black rounded-xl transition-all duration-200 shadow-md shadow-blue-500/20 cursor-pointer"
+              disabled={loading}
+              className="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-gradient-to-r from-[#2563EB] to-[#0EA5E9] text-white font-bold rounded-xl disabled:opacity-60 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-blue-500/20 transition-all"
             >
-              <FaPaperPlane size={14} /> Send Message
-            </motion.button>
+              <FaPaperPlane />
+              {loading ? 'Sending...' : 'Send Message'}
+            </button>
+
+            {status === 'success' && (
+              <p className="text-green-400 font-semibold text-center">
+                Message sent successfully. I will reply soon.
+              </p>
+            )}
+
+            {status === 'error' && (
+              <p className="text-red-400 font-semibold text-center">
+                Message not sent. Please try again.
+              </p>
+            )}
           </form>
         </motion.div>
       </div>
