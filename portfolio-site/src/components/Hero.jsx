@@ -14,7 +14,7 @@ const roles = [
 const socialLinks = [
   { icon: <FaLinkedin size={18} />, href: 'https://www.linkedin.com/in/paviyaalan/', label: 'LinkedIn' },
   { icon: <FaGithub size={18} />, href: 'https://github.com/PaviYaalan', label: 'GitHub' },
-  { icon: <FaEnvelope size={18} />, href: 'yalanpavi@gmail.com', label: 'Email' },
+  { icon: <FaEnvelope size={18} />, href: 'mailto:yalanpavi@gmail.com', label: 'Email' },
 
 ];
 

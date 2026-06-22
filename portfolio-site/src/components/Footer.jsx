@@ -13,8 +13,7 @@ const socials = [
   { icon: <FaLinkedin size={18} />, href: 'https://www.linkedin.com/in/paviyaalan/', label: 'LinkedIn' },
   { icon: <FaGithub size={18} />,   href: 'https://github.com/PaviYaalan',       label: 'GitHub' },
   { icon: <FaEnvelope size={18} />, href: 'mailto:yalanpavi@gmail.com',           label: 'Email' },
-  { icon: <FaInstagram size={18} />,href: '#',                                    label: 'Instagram' },
-  { icon: <FaYoutube size={18} />,  href: '#',                                    label: 'YouTube' },
+
 ];
 
 export default function Footer() {
