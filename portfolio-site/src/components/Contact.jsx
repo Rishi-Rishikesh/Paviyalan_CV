@@ -63,7 +63,7 @@ export default function Contact() {
             <p className="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-3">Download CV</p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href="/paviyalan-cv.pdf"
+                href="/paviyalan_cv.pdf"
                 download
                 className="flex items-center justify-center gap-2 px-5 py-3 bg-[#2563EB] text-white text-xs font-bold rounded-xl hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/20 hover:scale-105 transition-all cursor-pointer"
               >

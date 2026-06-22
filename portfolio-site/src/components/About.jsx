@@ -138,7 +138,7 @@ export default function About() {
               Get In Touch
             </motion.a>
             <motion.a
-              href="/paviyalan-cv.pdf"
+              href="/paviyalan_cv.pdf"
               download
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
