@@ -145,8 +145,8 @@ export default function MarketingWork() {
           <p className="text-slate-600 dark:text-slate-400 text-base">Download my comprehensive CV with all marketing projects, achievements, and expertise</p>
         </div>
         <motion.a
-          href="/paviyalancv.pdf"
-          download
+          href="/paviyalaancv.pdf"
+          download="paviyalaancv.pdf"
           whileHover={{ scale: 1.08, boxShadow: '0 12px 40px rgba(37,99,235,0.4)' }}
           whileTap={{ scale: 0.95 }}
           className="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-[#2563EB] to-[#0EA5E9] text-white font-bold rounded-2xl shadow-lg shadow-blue-500/30 hover:shadow-xl transition-all duration-300 whitespace-nowrap"
