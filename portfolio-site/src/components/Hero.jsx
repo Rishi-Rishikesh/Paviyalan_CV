@@ -215,7 +215,7 @@ export default function Hero() {
               className="relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] rounded-2xl overflow-hidden border-4 border-[#38BDF8]/60 shadow-2xl shadow-cyan-500/30 z-10"
             >
               <img
-                src="/yalaan.png"
+                src="\public/yalaan.png"
                 alt="Yokarasaa Paviyaalan"
                 className="w-full h-full object-cover object-top"
                 onError={(e) => {
