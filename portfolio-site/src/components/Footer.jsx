@@ -69,16 +69,16 @@ export default function Footer() {
             <p className="text-slate-900 dark:text-white font-bold text-sm mb-4 uppercase tracking-widest">Download CV</p>
             <div className="space-y-3">
               <a
-                href="/paviyalan_cv.pdf"
-                download
+                href="/paviyalancv.pdf"
+                download="/paviyalancv.pdf"
                 className="flex items-center gap-2.5 px-4 py-3 bg-[#2563EB]/10 border border-[#2563EB]/30 rounded-xl text-sm font-semibold text-[#2563EB] dark:text-[#38BDF8] hover:bg-[#2563EB]/20 hover:border-[#2563EB]/60 transition-all group cursor-pointer"
               >
                 <FaDownload size={13} className="group-hover:animate-bounce" />
                 Marketing CV
               </a>
               <a
-                href="/Yalaan.pdf"
-                download
+                href="/yalaan.pdf"
+                download="/yalaan.pdf"
                 className="flex items-center gap-2.5 px-4 py-3 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-xl text-sm font-semibold text-slate-800 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/10 hover:border-slate-300 dark:hover:border-white/20 hover:text-slate-950 dark:hover:text-white transition-all group cursor-pointer"
               >
                 <FaDownload size={13} className="group-hover:animate-bounce" />

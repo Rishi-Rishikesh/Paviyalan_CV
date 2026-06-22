@@ -64,14 +64,14 @@ export default function Contact() {
             <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href="/paviyalancv.pdf"
-                download
+                download="paviyalancv.pdf"
                 className="flex items-center justify-center gap-2 px-5 py-3 bg-[#2563EB] text-white text-xs font-bold rounded-xl hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/20 hover:scale-105 transition-all cursor-pointer"
               >
                 <FaDownload size={12} /> Marketing CV
               </a>
               <a
-                href="/Yalaan.pdf"
-                download
+                href="/yalaan.pdf"
+                download="yalaan.pdf"
                 className="flex items-center justify-center gap-2 px-5 py-3 border border-slate-200 dark:border-slate-800 text-slate-855 text-slate-800 dark:text-white text-xs font-bold rounded-xl hover:border-[#38BDF8] hover:text-[#38BDF8] hover:scale-105 transition-all glass cursor-pointer"
               >
                 <FaDownload size={12} /> QA CV
