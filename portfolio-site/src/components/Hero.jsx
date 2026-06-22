@@ -201,17 +201,17 @@ export default function Hero() {
           >
             {/* Outer spin ring */}
             {!reduced && (
-              <div className="absolute w-[440px] h-[440px] sm:w-[520px] sm:h-[520px] rounded-3xl border border-dashed border-[#38BDF8]/25 animate-spin-slow" />
+              <div className="absolute w-[380px] h-[380px] sm:w-[440px] sm:h-[440px] rounded-full border border-dashed border-[#38BDF8]/25 animate-spin-slow" />
             )}
 
             {/* Glow ring */}
-            <div className="absolute w-[400px] h-[400px] sm:w-[480px] sm:h-[480px] rounded-3xl animate-glow-pulse" />
+            <div className="absolute w-[340px] h-[340px] sm:w-[400px] sm:h-[400px] rounded-full animate-glow-pulse" />
 
             {/* Photo frame */}
             <motion.div
               animate={reduced ? {} : { y: [0, -14, 0] }}
               transition={{ duration: 5, ease: 'easeInOut', repeat: Infinity }}
-              className="relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] rounded-2xl overflow-hidden border-4 border-[#38BDF8]/60 shadow-2xl shadow-cyan-500/30 z-10"
+              className="relative w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] rounded-full overflow-hidden border-4 border-[#38BDF8]/60 shadow-2xl shadow-cyan-500/30 z-10"
             >
               <img
                 src="/yalaan.png"
